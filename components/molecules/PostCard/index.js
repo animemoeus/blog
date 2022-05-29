@@ -69,7 +69,7 @@ const Ma = (props) => {
             color={useColorModeValue("brand.600", "brand.400")}
             _hover={{ textDecor: "underline" }}
           >
-            Baca selengkapnya
+            Baca Selengkapnya
           </Link>
 
           <Flex alignItems="center">

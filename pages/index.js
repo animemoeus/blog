@@ -1,6 +1,8 @@
 import Navbar from "../components/molecules/Navbar";
 import PostCard from "../components/molecules/PostCard";
 
+import { Container } from "@chakra-ui/react";
+
 export default function Home() {
   const temp = [
     {
@@ -23,6 +25,7 @@ export default function Home() {
         name: "Arter Tendean",
         pic: "https://cdn.discordapp.com/attachments/858938620425404426/980436990682071050/aarter.jpg",
       },
+      date: "31 Februari 2022",
       category: "Psikologi",
     },
   ];
@@ -30,22 +33,39 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <br />
-      <PostCard
-        title={temp[0].title}
-        content={temp[0].content}
-        category={temp[0].category}
-        author={temp[0].author}
-        date={temp[0].date}
-      />
+      <Container maxWidth="100%" mt={1} p={0}>
+        <PostCard
+          title={temp[0].title}
+          content={temp[0].content}
+          category={temp[0].category}
+          author={temp[0].author}
+          date={temp[0].date}
+        />
 
-      <PostCard
-        title={temp[1].title}
-        content={temp[1].content}
-        category={temp[1].category}
-        author={temp[1].author}
-        date={temp[1].date}
-      />
+        <PostCard
+          title={temp[1].title}
+          content={temp[1].content}
+          category={temp[1].category}
+          author={temp[1].author}
+          date={temp[1].date}
+        />
+
+        <PostCard
+          title={temp[0].title}
+          content={temp[0].content}
+          category={temp[0].category}
+          author={temp[0].author}
+          date={temp[0].date}
+        />
+
+        <PostCard
+          title={temp[1].title}
+          content={temp[1].content}
+          category={temp[1].category}
+          author={temp[1].author}
+          date={temp[1].date}
+        />
+      </Container>
     </>
   );
 }
