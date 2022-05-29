@@ -51,11 +51,11 @@ export default function Gslr() {
               color="brand.500"
               display={{ base: "none", md: "inline-flex" }}
             >
-              <Button variant="ghost">Features</Button>
-              <Button variant="ghost">Pricing</Button>
-              <Button variant="ghost">Blog</Button>
-              <Button variant="ghost">Company</Button>
-              <Button variant="ghost">Sign in</Button>
+              <Button variant="ghost">Alpha</Button>
+              <Button variant="ghost">Beta</Button>
+              <Button variant="ghost">Gamma</Button>
+              <Button variant="ghost">Delta</Button>
+              <Button variant="ghost">Epsilon</Button>
             </HStack>
             <Button colorScheme="brand" size="sm">
               Get Started
@@ -92,19 +92,19 @@ export default function Gslr() {
                 />
 
                 <Button w="full" variant="ghost">
-                  Features
+                  Alpha
                 </Button>
                 <Button w="full" variant="ghost">
-                  Pricing
+                  Beta
                 </Button>
                 <Button w="full" variant="ghost">
-                  Blog
+                  Gamma
                 </Button>
                 <Button w="full" variant="ghost">
-                  Company
+                  Delta
                 </Button>
                 <Button w="full" variant="ghost">
-                  Sign in
+                  Epsilon
                 </Button>
               </VStack>
             </Box>
