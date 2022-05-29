@@ -31,7 +31,7 @@ const Ma = (props) => {
             fontSize="sm"
             color={useColorModeValue("gray.600", "gray.400")}
           >
-            31 Februari 2022
+            {props.date}
           </chakra.span>
           <Link
             px={3}

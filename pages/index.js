@@ -12,6 +12,7 @@ export default function Home() {
         name: "Arter Tendean",
         pic: "https://cdn.discordapp.com/attachments/858938620425404426/980436990682071050/aarter.jpg",
       },
+      date: "31 Februari 2022",
       category: "Terminologi",
     },
     {
@@ -35,6 +36,7 @@ export default function Home() {
         content={temp[0].content}
         category={temp[0].category}
         author={temp[0].author}
+        date={temp[0].date}
       />
 
       <PostCard
@@ -42,6 +44,7 @@ export default function Home() {
         content={temp[1].content}
         category={temp[1].category}
         author={temp[1].author}
+        date={temp[1].date}
       />
     </>
   );
