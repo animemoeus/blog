@@ -1,4 +1,7 @@
 import React from "react";
+import TextTruncate from "react-text-truncate";
+import moment from "moment";
+
 import {
   chakra,
   Box,
@@ -19,8 +22,8 @@ const Ma = (props) => {
     >
       <Box
         mx="auto"
-        px={8}
-        py={4}
+        px={4}
+        py={3}
         rounded="lg"
         shadow="lg"
         bg={useColorModeValue("white", "gray.800")}
@@ -31,7 +34,8 @@ const Ma = (props) => {
             fontSize="sm"
             color={useColorModeValue("gray.600", "gray.400")}
           >
-            {props.date}
+            {props.created_at}
+            {/* {moment(props.date).format("ll")} */}
           </chakra.span>
           <Link
             px={3}
@@ -60,7 +64,13 @@ const Ma = (props) => {
             {props.title}
           </Link>
           <chakra.p mt={2} color={useColorModeValue("gray.600", "gray.300")}>
-            {props.content}
+            {/* {props.content} */}
+            <TextTruncate
+              line={6}
+              element="span"
+              truncateText="..."
+              text={props.content}
+            />
           </chakra.p>
         </Box>
 
