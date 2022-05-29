@@ -1,5 +1,6 @@
 import Navbar from "../components/molecules/Navbar";
 import PostCard from "../components/molecules/PostCard";
+import Footer from "../components/molecules/Footer";
 
 import { Container } from "@chakra-ui/react";
 
@@ -66,6 +67,7 @@ export default function Home() {
           date={temp[1].date}
         />
       </Container>
+      <Footer />
     </>
   );
 }
