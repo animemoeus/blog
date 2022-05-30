@@ -14,7 +14,7 @@ def index(request):
 
 @api_view()
 def posts(request):
-    queryset = Post.objects.all().order_by("-id")
+    queryset = Post.objects.all().order_by("-created_at")
 
     paginator = PageNumberPagination()
     paginator.page_size = 7
