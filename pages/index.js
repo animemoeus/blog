@@ -7,32 +7,10 @@ import { Container } from "@chakra-ui/react";
 // import { useState, useEffect } from "react";
 
 export default function Home(props) {
-  const temp = [
-    {
-      title: "Deus ex Machina",
-      content:
-        "Deus ex Machina adalah sebuah istilah yang digunakan dalam teater, film, maupun novel, mengacu pada hadirnya solusi mendadak dalam cerita dengan kondisi terdesak dan tanpa pengharapan. Umumnya solusi yang diberikan pada akhir cerita terkesan seenaknya saja dan tidak memuaskan. Istilah ini umumnya dipandang negatif sebagai sesuatu yang payah karena mengindikasikan bahwa sang pengarang terjebak pada ...",
-
-      author: {
-        name: "Arter Tendean",
-        pic: "https://cdn.discordapp.com/attachments/858938620425404426/980436990682071050/aarter.jpg",
-      },
-      date: "31 Februari 2022",
-      category: "Terminologi",
-    },
-    {
-      title: "Efek Jembatan Gantung",
-      content:
-        "Efek jembatan gantung adalah sebuah fenomena dimana seseorang salah mengartikan perasaan berdebarnya. Jantung yang berdegup kencang karena takut, kadang diartikan oleh otak sebagai rasa cinta terhadap lawan jenis. Hal ini menjadi alasan mengapa para pria senang mengajak gebetannya ke bioskop untuk menonton film horor saat pada pendekatan. Percobaan efek jembatan gantung ini pernah dilakukan oleh ...",
-      author: {
-        name: "Arter Tendean",
-        pic: "https://cdn.discordapp.com/attachments/858938620425404426/980436990682071050/aarter.jpg",
-      },
-      date: "31 Februari 2022",
-      category: "Psikologi",
-    },
-  ];
-
+  const author = {
+    name: "Arter Tendean",
+    pic: "https://cdn.discordapp.com/attachments/858938620425404426/980436990682071050/aarter.jpg",
+  };
   return (
     <>
       <Head>
@@ -42,15 +20,7 @@ export default function Home(props) {
       <Navbar />
       <Container maxWidth="100%" mt={1} p={0}>
         {props.posts.results.map((post, index) => (
-          <PostCard
-            key={index}
-            title={post.title}
-            content={`${post.content}`}
-            category={post.category}
-            author={temp[0].author}
-            created_at={post.created_at}
-            post={post}
-          />
+          <PostCard key={index} author={author} post={post} />
         ))}
       </Container>
       <Footer />
