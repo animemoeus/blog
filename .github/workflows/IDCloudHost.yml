@@ -1,0 +1,30 @@
+name: IDCloudHost SG
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing Remote SSH Commands Using Password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.IDCLOUDHOST_SG_HOST }}
+          username: ${{ secrets.IDCLOUDHOST_SG_USERNAME }}
+          password: ${{ secrets.IDCLOUDHOST_SG_PASSWORD }}
+          port: ${{ secrets.IDCLOUDHOST_SG_PORT }}
+          script_stop: true
+          script: |
+            cd /home/shinomiya/django/my-blog
+            git pull origin master --force
+            /home/shinomiya/django/my-blog/722bd36509ab6c9baa812941ed00746c_venv/bin/pip install --upgrade pip
+            /home/shinomiya/django/my-blog/722bd36509ab6c9baa812941ed00746c_venv/bin/pip install -r requirements.txt
+            /home/shinomiya/django/my-blog/722bd36509ab6c9baa812941ed00746c_venv/bin/python3 manage.py makemigrations
+            /home/shinomiya/django/my-blog/722bd36509ab6c9baa812941ed00746c_venv/bin/python3 manage.py migrate
+            /home/shinomiya/django/my-blog/722bd36509ab6c9baa812941ed00746c_venv/bin/python3 manage.py check
+            /home/shinomiya/django/my-blog/722bd36509ab6c9baa812941ed00746c_venv/bin/python3 manage.py test
+            sudo /home/shinomiya/django/my-blog/722bd36509ab6c9baa812941ed00746c_venv/bin/python3 manage.py collectstatic --noinput
+            sudo kill -HUP $(cat logs/MyBlog.pid)
