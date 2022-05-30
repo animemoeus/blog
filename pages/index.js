@@ -1,6 +1,7 @@
 import Navbar from "../components/molecules/Navbar";
 import PostCard from "../components/molecules/PostCard";
 import Footer from "../components/molecules/Footer";
+import Head from "next/head";
 
 import { Container } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
@@ -50,6 +51,10 @@ export default function Home(props) {
 
   return (
     <>
+      <Head>
+        <title>Arter Tendean | my memories are right here</title>
+      </Head>
+
       <Navbar />
       <Container maxWidth="100%" mt={1} p={0}>
         {posts.results.map((post, index) => (
