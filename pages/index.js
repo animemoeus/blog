@@ -35,19 +35,19 @@ export default function Home(props) {
 
   const [posts, setPosts] = useState(props.posts);
 
-  useEffect(() => {
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+  // useEffect(() => {
+  //   var requestOptions = {
+  //     method: "GET",
+  //     redirect: "follow",
+  //   };
 
-    fetch("http://localhost:8000/blog/api/posts/", requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        setPosts(result);
-      })
-      .catch((error) => console.log("error", error));
-  }, []);
+  //   fetch("http://localhost:8000/blog/api/posts/", requestOptions)
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       setPosts(result);
+  //     })
+  //     .catch((error) => console.log("error", error));
+  // }, []);
 
   return (
     <>
