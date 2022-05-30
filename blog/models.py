@@ -30,7 +30,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True, default="")
 
     slug = models.CharField(max_length=255, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=False)
     updated_at = models.DateTimeField(auto_now=True)
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
