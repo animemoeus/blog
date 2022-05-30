@@ -4,6 +4,7 @@ import Navbar from "../components/molecules/Navbar";
 import PostCard from "../components/molecules/PostCard";
 
 import { Container } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 
 export default function Home(props) {
   const temp = [
@@ -32,6 +33,8 @@ export default function Home(props) {
     },
   ];
 
+  const [posts, setPosts] = useState(props.posts);
+
   return (
     <>
       <Head>
@@ -39,7 +42,6 @@ export default function Home(props) {
       </Head>
 
       <Navbar />
-
       <Container maxWidth="100%" mt={1} p={0}>
         {posts.results.map((post, index) => (
           <PostCard
@@ -53,7 +55,6 @@ export default function Home(props) {
           />
         ))}
       </Container>
-
       <Footer />
     </>
   );
@@ -61,8 +62,9 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://blog-api.tendean.my.id/blog/api/posts/`);
+  const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
   const data = await res.json();
+  console.log(data);
 
   // Pass data to the page via props
   return { props: { posts: data } };
