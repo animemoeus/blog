@@ -131,7 +131,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = "/www/wwwroot/blog-api.tendean.my.id/static/"
+STATIC_ROOT = "/www/wwwroot/my-blog.tendean.my.id/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
