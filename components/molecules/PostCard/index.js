@@ -1,6 +1,7 @@
+import NextLink from "next/link";
 import React from "react";
 import TextTruncate from "react-text-truncate";
-import moment from "moment";
+// import moment from "moment";
 
 import {
   chakra,
@@ -37,50 +38,60 @@ const Ma = (props) => {
             {props.created_at}
             {/* {moment(props.date).format("ll")} */}
           </chakra.span>
-          <Link
-            px={3}
-            py={1}
-            bg="gray.600"
-            color="gray.100"
-            fontSize="sm"
-            fontWeight="700"
-            rounded="md"
-            _hover={{ bg: "gray.500" }}
-          >
-            {props.category}
-          </Link>
+          <NextLink href={`/category/${props.post.category_slug}/`} passHref>
+            <Link
+              px={3}
+              py={1}
+              bg="gray.600"
+              color="gray.100"
+              fontSize="sm"
+              fontWeight="700"
+              rounded="md"
+              _hover={{ bg: "gray.500" }}
+            >
+              {props.post.category}
+            </Link>
+          </NextLink>
         </Flex>
 
         <Box mt={2}>
-          <Link
-            fontSize="2xl"
-            color={useColorModeValue("gray.700", "white")}
-            fontWeight="700"
-            _hover={{
-              color: useColorModeValue("gray.600", "gray.200"),
-              textDecor: "underline",
-            }}
+          <NextLink href={props.post.slug} passHref>
+            <Link
+              fontSize="2xl"
+              color={useColorModeValue("gray.700", "white")}
+              fontWeight="700"
+              _hover={{
+                color: useColorModeValue("gray.600", "gray.200"),
+                textDecor: "underline",
+              }}
+            >
+              {props.post.title}
+            </Link>
+          </NextLink>
+          <chakra.p
+            mt={2}
+            color={useColorModeValue("gray.600", "gray.300")}
+            fontSize="md"
           >
-            {props.title}
-          </Link>
-          <chakra.p mt={2} color={useColorModeValue("gray.600", "gray.300")}>
             {/* {props.content} */}
             <TextTruncate
               line={6}
               element="span"
               truncateText="..."
-              text={props.content}
+              text={props.post.content}
             />
           </chakra.p>
         </Box>
 
         <Flex justifyContent="space-between" alignItems="center" mt={4}>
-          <Link
-            color={useColorModeValue("brand.600", "brand.400")}
-            _hover={{ textDecor: "underline" }}
-          >
-            Baca Selengkapnya
-          </Link>
+          <NextLink href={props.post.slug} passHref>
+            <Link
+              color={useColorModeValue("brand.600", "brand.400")}
+              _hover={{ textDecor: "underline" }}
+            >
+              Baca Selengkapnya
+            </Link>
+          </NextLink>
 
           <Flex alignItems="center">
             <Image

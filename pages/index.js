@@ -60,6 +60,7 @@ export default function Home(props) {
             category={post.category}
             author={temp[0].author}
             created_at={post.created_at}
+            post={post}
           />
         ))}
 

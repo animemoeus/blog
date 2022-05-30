@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import React from "react";
 
 import {
@@ -41,7 +42,7 @@ export default function Gslr() {
               {/* <VisuallyHidden>Choc</VisuallyHidden> */}
             </chakra.a>
             <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
-              Arter Tendean
+              <NextLink href="/">Arter Tendean</NextLink>
             </chakra.h1>
           </Flex>
           <HStack display="flex" alignItems="center" spacing={1}>
