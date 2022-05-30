@@ -62,10 +62,25 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
-  const data = await res.json();
-  console.log(data);
+  // const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
+  // const data = await res.json();
+  // console.log(data);
 
   // Pass data to the page via props
-  return { props: { posts: data } };
+  return {
+    props: {
+      posts: {
+        results: [
+          {
+            title: "Fujoshi",
+            slug: "fujoshi",
+            content: "arter",
+            category: "Sosiologi",
+            category_slug: "sosiologi",
+            created_at: "2022-05-30T11:25:20.456624+08:00",
+          },
+        ],
+      },
+    },
+  };
 }
