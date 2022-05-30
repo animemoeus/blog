@@ -34,11 +34,7 @@ const Ma = (props) => {
             fontSize="sm"
             color={useColorModeValue("gray.600", "gray.400")}
           >
-            {
-              new Date("2021-09-22T15:23:34+08:00")
-                .toLocaleString("id")
-                .split(" ")[0]
-            }
+            {new Date(props.post.created_at).toLocaleString("id").split(" ")[0]}
           </chakra.span>
           <NextLink href={`/category/${props.post.category_slug}`} passHref>
             <Link
