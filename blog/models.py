@@ -40,7 +40,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if self.slug == "":
-            self.slug = slugify(self.title,allow_unicode=True)
+            self.slug = slugify(self.title, allow_unicode=True)
 
         if self.excerpt == "":
             self.excerpt = Truncator(self.content).words(30)
