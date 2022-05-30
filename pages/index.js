@@ -1,10 +1,9 @@
-import Navbar from "../components/molecules/Navbar";
-import PostCard from "../components/molecules/PostCard";
 import Footer from "../components/molecules/Footer";
 import Head from "next/head";
+import Navbar from "../components/molecules/Navbar";
+import PostCard from "../components/molecules/PostCard";
 
 import { Container } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
 
 export default function Home(props) {
   const temp = [
@@ -33,22 +32,6 @@ export default function Home(props) {
     },
   ];
 
-  const [posts, setPosts] = useState(props.posts);
-
-  // useEffect(() => {
-  //   var requestOptions = {
-  //     method: "GET",
-  //     redirect: "follow",
-  //   };
-
-  //   fetch("http://localhost:8000/blog/api/posts/", requestOptions)
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       setPosts(result);
-  //     })
-  //     .catch((error) => console.log("error", error));
-  // }, []);
-
   return (
     <>
       <Head>
@@ -56,6 +39,7 @@ export default function Home(props) {
       </Head>
 
       <Navbar />
+
       <Container maxWidth="100%" mt={1} p={0}>
         {posts.results.map((post, index) => (
           <PostCard
@@ -68,31 +52,8 @@ export default function Home(props) {
             post={post}
           />
         ))}
-
-        {/* <PostCard
-          title={temp[1].title}
-          content={temp[1].content}
-          category={temp[1].category}
-          author={temp[1].author}
-          date={temp[1].date}
-        />
-
-        <PostCard
-          title={temp[0].title}
-          content={temp[0].content}
-          category={temp[0].category}
-          author={temp[0].author}
-          date={temp[0].date}
-        />
-
-        <PostCard
-          title={temp[1].title}
-          content={temp[1].content}
-          category={temp[1].category}
-          author={temp[1].author}
-          date={temp[1].date}
-        /> */}
       </Container>
+
       <Footer />
     </>
   );
@@ -100,7 +61,7 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
+  const res = await fetch(`https://blog-api.tendean.my.id/blog/api/posts/`);
   const data = await res.json();
 
   // Pass data to the page via props
