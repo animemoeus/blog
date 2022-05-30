@@ -110,7 +110,7 @@ export async function getServerSideProps(context) {
   const postSlug = context.params.slug;
 
   // Fetch data from external API
-  const res = await fetch(`http://localhost:8000/blog/api/post/${postSlug}`);
+  const res = await fetch(`${process.env.API_URL}/blog/api/post/${postSlug}`);
   const data = await res.json();
 
   // Pass data to the page via props

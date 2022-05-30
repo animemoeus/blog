@@ -38,7 +38,7 @@ const Ma = (props) => {
             {props.created_at}
             {/* {moment(props.date).format("ll")} */}
           </chakra.span>
-          <NextLink href={`/category/${props.post.category_slug}/`} passHref>
+          <NextLink href={`/category/${props.post.category_slug}`} passHref>
             <Link
               px={3}
               py={1}
@@ -55,7 +55,7 @@ const Ma = (props) => {
         </Flex>
 
         <Box mt={2}>
-          <NextLink href={props.post.slug} passHref>
+          <NextLink href={`/${props.post.slug}`} passHref>
             <Link
               fontSize="2xl"
               color={useColorModeValue("gray.700", "white")}
@@ -84,7 +84,7 @@ const Ma = (props) => {
         </Box>
 
         <Flex justifyContent="space-between" alignItems="center" mt={4}>
-          <NextLink href={props.post.slug} passHref>
+          <NextLink href={`/${props.post.slug}`} passHref>
             <Link
               color={useColorModeValue("brand.600", "brand.400")}
               _hover={{ textDecor: "underline" }}
