@@ -9,7 +9,7 @@ import { Container } from "@chakra-ui/react";
 export default function Home(props) {
   const author = {
     name: "Arter Tendean",
-    pic: "https://cdn.discordapp.com/attachments/858938620425404426/980436990682071050/aarter.jpg",
+    pic: "https://avatars.githubusercontent.com/u/33395829",
   };
   return (
     <>

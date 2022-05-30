@@ -1,7 +1,6 @@
 import NextLink from "next/link";
 import React from "react";
 import TextTruncate from "react-text-truncate";
-// import moment from "moment";
 
 import {
   chakra,
@@ -16,7 +15,7 @@ const Ma = (props) => {
   return (
     <Flex
       bg={useColorModeValue("#F9FAFB", "gray.600")}
-      p={4}
+      p={3}
       w="full"
       alignItems="center"
       justifyContent="center"
@@ -67,6 +66,9 @@ const Ma = (props) => {
                 color: useColorModeValue("gray.600", "gray.200"),
                 textDecor: "underline",
               }}
+              _focus={{
+                boxShadow: "none",
+              }}
             >
               {props.post.title}
             </Link>
@@ -91,6 +93,9 @@ const Ma = (props) => {
             <Link
               color={useColorModeValue("brand.600", "brand.400")}
               _hover={{ textDecor: "underline" }}
+              _focus={{
+                boxShadow: "none",
+              }}
             >
               Baca Selengkapnya
             </Link>
