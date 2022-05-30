@@ -33,7 +33,17 @@ export default function Home(props) {
     },
   ];
 
-  const [posts, setPosts] = useState(props.posts);
+  useEffect(() => {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("https://blog-api.tendean.my.id/blog/api/posts/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  }, []);
 
   return (
     <>
@@ -43,7 +53,7 @@ export default function Home(props) {
 
       <Navbar />
       <Container maxWidth="100%" mt={1} p={0}>
-        {posts.results.map((post, index) => (
+        {props.posts.results.map((post, index) => (
           <PostCard
             key={index}
             title={post.title}
@@ -62,25 +72,9 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  // const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
-  // const data = await res.json();
-  // console.log(data);
+  const res = await fetch("https://blog-api.tendean.my.id/blog/api/posts/");
+  const data = await res.json();
 
   // Pass data to the page via props
-  return {
-    props: {
-      posts: {
-        results: [
-          {
-            title: "Fujoshi",
-            slug: "fujoshi",
-            content: "arter",
-            category: "Sosiologi",
-            category_slug: "sosiologi",
-            created_at: "2022-05-30T11:25:20.456624+08:00",
-          },
-        ],
-      },
-    },
-  };
+  return { props: { posts: data } };
 }
