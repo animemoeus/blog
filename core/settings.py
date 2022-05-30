@@ -28,7 +28,7 @@ SECRET_KEY = secrets.SECRET_KEY
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "blog-api.tendean.my.id",
+    "my-blog.tendean.my.id",
 ]
 
 
@@ -58,7 +58,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "core.urls"
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
     {
