@@ -71,10 +71,10 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch("https://api.animemoe.us/waifu/");
-  const data = await res.json();
+  const url = await "https://blog-api.tendean.my.id/blog/api/posts/";
 
-  // Pass data to the page via props
-  return { props: { posts: data } };
+  const res = await fetch(`${url}`);
+  const response = await res.json();
+
+  return { props: { posts: response } };
 }
