@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 
-import "github-markdown-css/github-markdown.css";
+import "github-markdown-css/github-markdown-light.css";
 
 const Post = (props) => {
   return (
