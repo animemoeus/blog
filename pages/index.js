@@ -4,7 +4,7 @@ import Navbar from "../components/molecules/Navbar";
 import PostCard from "../components/molecules/PostCard";
 
 import { Container } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 export default function Home(props) {
   const temp = [
@@ -33,18 +33,6 @@ export default function Home(props) {
     },
   ];
 
-  useEffect(() => {
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch("https://blog-api.tendean.my.id/blog/api/posts/", requestOptions)
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  }, []);
-
   return (
     <>
       <Head>
@@ -71,9 +59,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const url = await "https://blog-api.tendean.my.id/blog/api/posts/";
-
-  const res = await fetch(`${url}`);
+  const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
   const response = await res.json();
 
   return { props: { posts: response } };
