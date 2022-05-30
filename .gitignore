@@ -35,3 +35,4 @@ yarn-error.log*
 env
 *.pyc
 db.sqlite3
+secrets.py
