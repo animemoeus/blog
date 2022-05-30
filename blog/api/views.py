@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from blog.models import Post
-from .serializers import PostSerializer
+from .serializers import PostsSerializer, PostDetailSerializer
 
 
 def index(request):
@@ -20,7 +20,7 @@ def posts(request):
     paginator.page_size = 7
 
     result = paginator.paginate_queryset(queryset, request)
-    serializer = PostSerializer(result, many=True)
+    serializer = PostsSerializer(result, many=True)
 
     return paginator.get_paginated_response(serializer.data)
 
@@ -34,6 +34,6 @@ def detail(request, slug):
             {"success": False, "data": None}, status=status.HTTP_404_NOT_FOUND
         )
 
-    serializer = PostSerializer(queryset)
+    serializer = PostDetailSerializer(queryset)
 
     return Response({"success": True, "data": serializer.data})

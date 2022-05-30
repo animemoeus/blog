@@ -78,7 +78,7 @@ const Ma = (props) => {
               line={6}
               element="span"
               truncateText="..."
-              text={props.post.content}
+              text={props.post.excerpt}
             />
           </chakra.p>
         </Box>

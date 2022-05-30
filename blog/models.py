@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.text import slugify
+from django.utils.text import slugify, Truncator
 
 
 class Category(models.Model):
@@ -27,6 +27,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=255)
     content = models.TextField()
+    excerpt = models.TextField(blank=True, default="")
 
     slug = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -39,4 +40,8 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+
+        if self.excerpt == "":
+            self.excerpt = Truncator(self.content).words(30)
+
         super().save(*args, **kwargs)
