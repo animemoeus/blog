@@ -106,7 +106,7 @@ const Post = (props) => {
 
 export default Post;
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const postSlug = context.params.slug;
 
   // Fetch data from external API
@@ -114,5 +114,5 @@ export async function getServerSideProps(context) {
   const data = await res.json();
 
   // Pass data to the page via props
-  return { props: { post: data } };
+  return { props: { post: data }, revalidate: 86400 };
 }

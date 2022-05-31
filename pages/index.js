@@ -28,9 +28,9 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
   const response = await res.json();
 
-  return { props: { posts: response } };
+  return { props: { posts: response }, revalidate: 3600 };
 }
