@@ -11,6 +11,7 @@ export default function Home(props) {
     name: "Arter Tendean",
     pic: "https://avatars.githubusercontent.com/u/33395829",
   };
+
   return (
     <>
       <Head>
@@ -18,19 +19,21 @@ export default function Home(props) {
       </Head>
 
       <Navbar />
+
       <Container maxWidth="100%" mt={1} p={0}>
         {props.posts.results.map((post, index) => (
           <PostCard key={index} author={author} post={post} />
         ))}
       </Container>
+
       <Footer />
     </>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${process.env.API_URL}/blog/api/posts/`);
   const response = await res.json();
 
-  return { props: { posts: response }, revalidate: 3600 };
+  return { props: { posts: response } };
 }
