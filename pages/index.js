@@ -1,3 +1,4 @@
+import Error from "next/error";
 import Footer from "../components/molecules/Footer";
 import Head from "next/head";
 import Navbar from "../components/molecules/Navbar";
@@ -5,9 +6,13 @@ import PostCard from "../components/molecules/PostCard";
 import Pagination from "../components/molecules/Pagination";
 
 import { Container } from "@chakra-ui/react";
-// import { useState, useEffect } from "react";
 
 export default function Home(props) {
+  // error page :)
+  if (props.errorCode) {
+    return <Error statusCode={props.errorCode} />;
+  }
+
   const author = {
     name: "Arter Tendean",
     pic: "https://avatars.githubusercontent.com/u/33395829",
@@ -50,10 +55,12 @@ export async function getServerSideProps(context) {
   const res = await fetch(
     `${process.env.API_URL}/blog/api/posts/?page=${page}`
   );
+  const errorCode = res.ok ? false : res.status;
   const response = await res.json();
 
   return {
     props: {
+      errorCode: errorCode,
       posts: response,
       pagination: { previous: parseInt(page) - 1, next: parseInt(page) + 1 },
     },
