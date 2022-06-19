@@ -114,5 +114,5 @@ export async function getServerSideProps(context) {
   const data = await res.json();
 
   // Pass data to the page via props
-  return { props: { post: data } };
+  return { props: { post: data, revalidate: 60 } };
 }
