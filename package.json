@@ -16,7 +16,7 @@
     "framer-motion": "^6.4.2",
     "github-markdown-css": "^5.1.0",
     "moment": "^2.29.4",
-    "next": "12.2.0",
+    "next": "12.2.1",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
