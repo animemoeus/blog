@@ -63,7 +63,6 @@ export async function getServerSideProps(context) {
       errorCode: errorCode,
       posts: response,
       pagination: { previous: parseInt(page) - 1, next: parseInt(page) + 1 },
-      revalidate: 3600,
     },
   };
 }
